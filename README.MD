@@ -1,6 +1,6 @@
 # chishiki-parser
 
-Script to push data from the KANJDIC2 and JMdict dictionary files to a Mongo database.
+Script to simplify the data from the KANJDIC2 and JMdict dictionary files and insert it into a Mongo database.
 
 ## Usage
 - Create a `.env` file and fill it accordingly.
