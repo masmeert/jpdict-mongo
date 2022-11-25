@@ -10,7 +10,7 @@ import (
 
 func ParseKanjiDic() (types.KanjiDic, error) {
 	var kanjidic types.KanjiDic
-	file, err := utils.OpenXMLFile("JMdict")
+	file, err := utils.OpenXMLFile("kanjidic2")
 	if err != nil {
 		return kanjidic, err
 	}
