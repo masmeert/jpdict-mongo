@@ -8,9 +8,9 @@ import (
 )
 
 type Client struct {
-	DB       *mongo.Client
-	KanjiDic *mongo.Collection
-	JMdict   *mongo.Collection
+	DB     *mongo.Client
+	Kanjis *mongo.Collection
+	JMdict *mongo.Collection
 }
 
 func NewClient(uri, db string) (*Client, error) {
@@ -19,12 +19,12 @@ func NewClient(uri, db string) (*Client, error) {
 		return nil, err
 	}
 	database := client.Database(db)
-	kanjidic := database.Collection("kanjidic")
+	kanjis := database.Collection("kanjis")
 	jmdict := database.Collection("jmdict")
 
 	return &Client{
 		client,
-		kanjidic,
+		kanjis,
 		jmdict,
 	}, nil
 }

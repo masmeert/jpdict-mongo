@@ -2,18 +2,26 @@ package parsers
 
 import "testing"
 
-func TestJMdictParser(t *testing.T) {
-	jmdict, err := ParseJMdict()
+func TestGetJMdict(t *testing.T) {
+	jmdict, err := GetJMdict()
 	if err != nil {
 		t.Error(err)
 	}
 	t.Log(len(jmdict.Entries))
 }
 
-func TestKanjiDicParser(t *testing.T) {
-	kanjidic, err := ParseKanjiDic()
+func TestGetKanjiDic(t *testing.T) {
+	kanjidic, err := GetKanjiDic()
 	if err != nil {
 		t.Error(err)
 	}
 	t.Log(len(kanjidic.Entries))
+}
+
+func TestParseKanjidic(t *testing.T) {
+	kanjis, err := ParseKanjidic()
+	if err != nil {
+		t.Error(err)
+	}
+	t.Log(kanjis[0])
 }

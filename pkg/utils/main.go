@@ -41,9 +41,9 @@ func ParseXMLEntities(directive xml.Directive) map[string]string {
 	return entities
 }
 
-func KanjidicToInterface(kanjidic types.KanjiDic) []interface{} {
-	entries := make([]interface{}, len(kanjidic.Entries))
-	for i, entry := range kanjidic.Entries {
+func KanjisToInterface(kanjis []types.Kanji) []interface{} {
+	entries := make([]interface{}, len(kanjis))
+	for i, entry := range kanjis {
 		entries[i] = entry
 	}
 	return entries
