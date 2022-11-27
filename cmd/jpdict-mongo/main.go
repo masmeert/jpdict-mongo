@@ -17,13 +17,17 @@ func main() {
 	fmt.Println("Parsing dictionary files...")
 	kanjis, err := parsers.ParseKanjidic()
 	utils.RaiseError(err)
+	jmdict, err := parsers.GetJMdict()
+	utils.RaiseError(err)
 
 	fmt.Println("Connecting to MongoDB...")
 	client, err := database.NewClient(os.Getenv("DB_URI"), os.Getenv("DB_NAME"))
 	utils.RaiseError(err)
 
-	fmt.Println("Inserting kanjidic entries...")
+	fmt.Println("Inserting entries...")
 	_, err = client.Kanjis.InsertMany(context.TODO(), utils.KanjisToInterface(kanjis))
+	utils.RaiseError(err)
+	_, err = client.JMdict.InsertMany(context.TODO(), utils.JMdictToInterface(jmdict))
 	utils.RaiseError(err)
 
 	fmt.Println("Closing database connection...")
